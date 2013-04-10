@@ -1,35 +1,90 @@
 bioinformatics
 ==============
 This repository contains some commonly-used bioinformatics functions in Python. These were mainly written for learning purposes. 
-The module "LisaPySeq.py" can be used without installation of Biopython.
+
+I work for an academic institute doing research on gene expression profiling using our own custom-designed microarrays. Basically, I got tired of using piece-meal software packages and web-based programs to accomplish the bioinformatics tasks needed on a daily basis. So, I started learning Python to circumvent some of our obstacles. 
+
+The module [LisaPySeq.py] () can be used without installation of Biopython.
 
 Contact
 =======
-Lisa Cohen
-lisa.johnson.cohen@gmail.com
+My email address is lisa.johnson.cohen@gmail.com or lcohen49@hboi.fau.edu.
    
 Installation instructions
 =========================
-Download "LisaPySeq.py" into a working directory. Use the "import LisaPySeq" statement. An example program is provided in "seq_anal_example.py"
+Download [LisaPySeq.py] () into a working directory. 
+   
+      import LisaPySeq
+
+An example program is provided in [seq_anal_example.py] ()
 
 Module Contents
 ===============
-1. seq_length: returns oligonucleotide length
-2. GCcontent
-3. ATGCratio
-4. mol_wt: returns molecular weight (g/mol)
-5. Tm: returns melting temperature under standard salt conditions
-6. ORF: returns partial open reading frames
-7. revcomp_RNA: returns reverse complement of an RNA sequence
-8. revcomp_DNA: returns reverse complement of a DNA sequence
-9. transcription: replaces T with U
-10. codon: returns codons from an RNA sequence on multiple frames
+The following functions are available in [LisaPySeq.py] ():
 
+1. Prints the length of an oligonucleotide sequence:
+
+         def seq_length(seq):
+      
+2. Count the number of A, T, G, C bases in a DNA sequence. The counts are stored and returned in a dictionary with bases as keys and counts as values:
+
+         def seq_count(seq):
+            ...
+            return (ATGC)
+         
+3. Calculates the GC content of a sequence:
+
+         def GCcont(ATGC):
+
+4. Calculates and prints the AT/GC ratio of a sequence with the following equation: (A+T)/(G+C)
+
+         def ATGCrat(ATGC):
+      
+5. Calculates and prints the molecular weight (mw) of a sequence (g/mol). The calculation uses the mw of each base (A: 313.21 g/mol, T: 304.2 g/mol, C: 289.18 g/mol, G: 329.21 g/mol) and takes into account the removal of HPO2 and addition of 2H during polymerization. The calculation assumes that the oligonucleotide sequence is more than 8 bases long. For more information, please see the complete explanation and oligonucleotide calculator provided by [Northwestern University][1].  
+
+         def mol_wt(ATGC):
+      
+6. Calculates and prints the melting temperature (degC) of the sequence under standard salt conditions. The calculation is based on two standard equations taking into account thermodynamic stabilities of the polymer. Standard salt conditions are assumed, with Na+ or K+ between 0.1-1M. For more information, please see the complete explanation and oligonucleotide calculator provided by [Northwestern University][1].
+
+         def Tm(ATGC):
+
+7. Transcribes a 5'-->3' DNA sequence and returns its mRNA sequence: 
+
+         def transcription(DNA):
+            ...
+            return RNA
+
+8. Reads an RNA sequence and returns its reverse complement:
+
+         def revcomp_RNA(RNA):
+            return revcompRNAseq
+
+9. Reads a DNA sequence and returns its reverse complement:
+
+         def revcomp_DNA(DNA):
+            return revcompDNAseq
+            
+
+10. Compiles and returns a dictionary of codons from an RNA sequence on with frame (+1, +2, or +3) as keys and codons as values:
+
+         def codon(RNA):
+            ...
+            return codons
+
+11. Finds a partial open reading frame (ORF) or coding sequence (partial cds) by searching for STOP or START (Methionine) codons. (NOTE: Future versions of this function will piece together a full ORF, if present):
+
+         def ORF(codons):
+            ...
+            return RNA_ORF
 
 Credits
 =======
-These functions are based on several web-based programs commonly used in my work on gene expression profiling:
-Oligonucleotide Properties Calculator: http://www.basic.northwestern.edu/biotools/oligocalc.html
-Reverse Complement: http://arep.med.harvard.edu/labgc/adnan/projects/Utilities/revcomp.html
-Translation: http://www.attotron.com/cybertory/analysis/trans.htm
-Open Reading Frame: http://www.ncbi.nlm.nih.gov/projects/gorf/
+These functions are based on several web-based programs we commonly use:
+* [Oligonucleotide Properties Calculator] [1]
+* [Reverse Complement] [2] 
+* [Translation] [3] 
+* [Open Reading Frame] [4]
+[1]: http://www.basic.northwestern.edu/biotools/oligocalc.html                   "Oligonucleotide Properties Calculator"
+[2]: http://arep.med.harvard.edu/labgc/adnan/projects/Utilities/revcomp.html     "Reverse Complement"
+[3]: http://www.attotron.com/cybertory/analysis/trans.htm                        "Translation"
+[4]: http://www.ncbi.nlm.nih.gov/projects/gorf/                                  "Open Reading Frame"
