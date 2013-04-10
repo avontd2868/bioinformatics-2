@@ -8,7 +8,7 @@ The module [LisaPySeq.py] () can be used without installation of Biopython.
 
 Contact
 =======
-My email address is lisa.johnson.cohen@gmail.com or lcohen49@hboi.fau.edu.
+Email lisa.johnson.cohen@gmail.com or lcohen49@hboi.fau.edu.
    
 Installation instructions
 =========================
