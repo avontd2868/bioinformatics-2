@@ -1,15 +1,15 @@
 bioinformatics
 ==============
-This repository contains some commonly-used bioinformatics functions in Python. These were mainly written for learning purposes. 
-
-I work for an academic institute doing research on gene expression profiling using our own custom-designed microarrays. Basically, I got tired of using piece-meal software packages and web-based programs to accomplish the bioinformatics tasks needed on a daily basis. So, I started learning Python to circumvent some of our obstacles. 
+This repository contains some commonly-used bioinformatics functions written in Python 3. These were mainly written for learning purposes. 
 
 The module [LisaPySeq.py] () can be used without installation of Biopython.
 
 Contact
 =======
 Email lisa.johnson.cohen@gmail.com or lcohen49@hboi.fau.edu.
-   
+
+I work for an academic institute doing research on gene expression profiling using our own custom-designed microarrays. Basically, I got tired of using piece-meal software packages and web-based programs to accomplish the bioinformatics tasks needed on a daily basis. So, I started learning Python to circumvent some of our obstacles. 
+
 Installation instructions
 =========================
 Download [LisaPySeq.py] () into a working directory. 
