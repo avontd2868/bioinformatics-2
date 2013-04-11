@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 #
 #Copyright: This module is copyright 2013 by Lisa Cohen,
-#licensed under the BSD License.
+#under the BSD License.
 #Revision 1.0
 #Date: April 10, 2013
 
-"""A module containing commonly-used bioinformatics functions.
+"""A module containing bioinformatics functions.
 
-This module is written in Python3 and contains 11 functions.
+This module is written in Python3 and contains 11 commonly-used bioinformatics functions.
 See the program "seq_anal_example.py" for an example. 
 These were written in Python 3 and can be used indepently of Biopython.
 """
@@ -15,7 +15,9 @@ These were written in Python 3 and can be used indepently of Biopython.
 import re
 
 def seq_length(seq):
-    """Prints the length of an oligonucleotide sequence."""
+    """Prints the length of an oligonucleotide sequence.
+    
+    """
     seqlength=len(seq)
     print('The length of the oligonucleotide sequence is: ',seqlength)
 
@@ -127,12 +129,13 @@ def codon(RNA):
     return codons
 
 def ORF(codons):
-    """Open Reading Frame (ORF) finger:
+    """Open Reading Frame (ORF) finder:
     
-    Finds a partial open reading frame (ORF) or coding sequence (partial cds) by searching for STOP or START (Methionine) codons.
-    NOTE: Future versions of this function will piece together a full ORF, if present.
-
+    Finds a partial open reading frame (ORF) or coding sequence (partial cds) 
+    by searching for STOP or START (Methionine) codons.
+    
     """
+    #NOTE: Future versions of this function will piece together a full ORF, if present.
     RNA_ORF={}
     Met='AUG'
     STOP=['UAA','UAG','UGA']
