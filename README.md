@@ -44,7 +44,7 @@ The following functions are available in [LisaPySeq.py] ():
 
          def mol_wt(ATGC):
       
-6. Calculates and prints the melting temperature (degC) of the sequence under standard salt conditions. The calculation is based on two standard equations taking into account thermodynamic stabilities of the polymer. Standard salt conditions are assumed, with Na+ or K+ between 0.1-1M. For more information, please see the complete explanation and oligonucleotide calculator provided by [Northwestern University][1].
+6. Calculates and prints the melting temperature (degC) of the sequence under standard salt conditions. The calculation is based on two standard equations taking into account thermodynamic phase transitions of the polymer. Standard salt conditions are assumed, with Na+ or K+ between 0.1-1M. For more information, please see the complete explanation and oligonucleotide calculator provided by [Northwestern University][1].
 
          def Tm(ATGC):
 
