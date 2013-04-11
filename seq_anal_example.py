@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-#!/usr/bin/env python
 #
 #Copyright: This module is copyright 2013 by Lisa Cohen,
 #under the BSD License
