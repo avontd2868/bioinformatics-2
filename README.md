@@ -88,3 +88,8 @@ These functions are based on several web-based programs we commonly use:
 [2]: http://arep.med.harvard.edu/labgc/adnan/projects/Utilities/revcomp.html     "Reverse Complement"
 [3]: http://www.attotron.com/cybertory/analysis/trans.htm                        "Translation"
 [4]: http://www.ncbi.nlm.nih.gov/projects/gorf/                                  "Open Reading Frame"
+
+I found this article particularly inspiring:
+* [A Quick Guide for Developing Effective Bioinformatics Programming Skills.] [5]
+
+[5]: http://www.ploscompbiol.org/article/info%3Adoi%2F10.1371%2Fjournal.pcbi.1000589   "A Quick Guide for Developing Effective Bioinformatics Programming Skills."
