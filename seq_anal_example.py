@@ -2,8 +2,8 @@
 #
 #Copyright: This module is copyright 2013 by Lisa Cohen,
 #under the BSD License
-#Revision 1.0
-#Date: April 10, 2013
+#Revision 1.1
+#Date: April 15, 2013
 
 """
 Example program using LisaPySeq
@@ -23,7 +23,8 @@ LisaPySeq.mol_wt(seqcount)
 LisaPySeq.Tm(seqcount)
 RNA=LisaPySeq.transcription(seq)
 LisaPySeq.revcomp_RNA(RNA)
-LisaPySeq.ORF(LisaPySeq.codon(RNA))
+RNA_ORF=LisaPySeq.ORF(LisaPySeq.codon(RNA))
+LisaPySeq.translation(LisaPySeq.aminoacid_codons(),RNA_ORF)
 input('Press ENTER to quit')
 
 #For test sequences, please see the NCBI Nucleotide database:
