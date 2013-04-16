@@ -77,6 +77,18 @@ The following functions are available in [LisaPySeq.py] ():
             ...
             return RNA_ORF
 
+12. Defines amino acid single letter codes (SLC) from RNA codons: RNA-->protein. This function returns a dictionary with SLC as keys and RNA codons as values. This dictionary can be used by other functions to look up SLC with RNA codons or vice versa.
+
+         def aminoacid_codons():
+            ...
+            return aa
+            
+13. Translates an RNA sequence (ORF) into a sequence of corresponding amino acids. This function returns a dictionary with SLC sequences for each strand.
+
+         def translation(aa, RNA_ORF):
+            ...
+            return SLCdict
+
 Credits
 =======
 These functions are based on several web-based programs we commonly use:
