@@ -2,12 +2,12 @@
 #
 #Copyright: This module is copyright 2013 by Lisa Cohen,
 #under the BSD License.
-#Revision 1.0
-#Date: April 10, 2013
+#Revision 1.1
+#Date: April 15, 2013
 
 """A module containing bioinformatics functions.
 
-This module is written in Python3 and contains 11 commonly-used bioinformatics functions.
+This module is written in Python3 and contains 13 commonly-used bioinformatics functions.
 See the program "seq_anal_example.py" for an example. 
 These were written in Python 3 and can be used indepently of Biopython.
 """
@@ -129,7 +129,7 @@ def codon(RNA):
     return codons
 
 def ORF(codons):
-    """Open Reading Frame (ORF) finder:
+    """Open Reading Frame finder (partial):
     
     Finds a partial open reading frame (ORF) or coding sequence (partial cds) 
     by searching for STOP or START (Methionine) codons.
@@ -138,6 +138,7 @@ def ORF(codons):
     #NOTE: Future versions of this function will piece together a full ORF, if present.
     RNA_ORF={}
     Met='AUG'
+    #The codon AUG encodes the amino acid Methionine and acts as an initiation site for translation to START.
     STOP=['UAA','UAG','UGA']
     for strand, codon in codons.items():
         if Met in codon:
@@ -147,13 +148,65 @@ def ORF(codons):
                 RNA_ORF[strand]=codon[:codon.index(item)]
     print('These are the strands with open reading frames: ',RNA_ORF)
     return RNA_ORF
+    
+def aminoacid_codons():
+    """Amino Acid Codons: RNA-->protein
+    
+    
+    During the process of translation, ribosomes catalyze the synthesis of polypeptides from amino acids. Individual amino acids are added onto the growing polymer by tRNAs that recognize a specific RNA codon (set of 3 RNA bases).  
+    Degeneracy in the genetic code allows for tRNA to recognize several different codons, e.g. GGU, GGC, GGA, and GGG all encode for the amino acid Glycine.
+    This function returns a dictionary with amino acid single letter codes (SLC) as keys and RNA codons as values. This dictionary can be used by other functions to look up SLC with RNA codons or vice versa. 
+    
+    """
+    aa={'I':['AUU','AUC','AUA'],'L':['CUU','CUC','CUA','CUG','UUA','UUG'],\
+            'V':['GUU','GUC','GUA','GUG'],'F':['UUU','UUC'],'M':['AUG'],\
+            'C':['UGU','UGC'],'A':['GCU','GCC','GCA','GCG'],'G':['GGU','GGC','GGA','GGG'],\
+            'P':['ACU','ACC','ACA','ACG'],'T':['ACU','ACC','ACA','ACG'],\
+            'S':['UCU','UCC','UCA','UCG','ACU','AGC'],'Y':['UAU','UAC'],\
+            'W':['UGG'],'Q':['CAA','CAG'],'N':['AAU','AAC'],'H':['CAU','CAC'],\
+            'E':['GAA','GAG'],'D':['GAU','GAC'],'K':['AAA','AAG'],\
+            'R':['CGU','CGC','CGA','CGG','AGA','AGG'],'X':['UAA','UAG','UGA']}
+    #I=Isoleucine
+    #L=Leucine
+    #V=Valine
+    #F=Phenylalanine
+    #M=Methionine=START
+    #C=Cysteine
+    #A=Alanine
+    #G=Glycine
+    #P=Proline
+    #T=Threonine
+    #S=Serine
+    #Y=Tyrosine
+    #W=Tryptophan
+    #Q=Glutamine
+    #N=Asparagine
+    #H=Histidine
+    #E=Glutamic acid
+    #D=Aspartic acid
+    #K=Lysine
+    #R=Arginine
+    #X=STOP
+    return aa
+
+def translation(aa, RNA_ORF):
+    """Amino Acid Translation
+    
+    Function takes in RNA (ORF) and returns a sequence of amino acids. 
+    
+    """
+    
+#search aa to find aa[SLC]=codon then append SLClist.append(key) 
+    SLCdict={}
+    for strand in RNA_ORF:
+        SLCdict[strand]="".join([SLC for codon in RNA_ORF[strand] for SLC in aa.keys() if codon in aa[SLC]])
+    print('These are the translated amino acid sequences: ',SLCdict)
+    return SLCdict
 
 
 #Future additions to this module will include:
-#1. Translation/amino acid sequence prediction
-#2. fasta file import
-#3. BLAST alignments
-#4. Enrichment analysis: input a list of accession, use Fisher's exact test to assign GO terms, output list of significant functional groups represented
-#5. Take a fasta file of ESTs, find open reading frame, BLAST, annotate, assign GO terms, output a new fasta file
-
-
+#1. fasta file import
+#full ORF prediction
+#2. BLAST alignments
+#3. Enrichment analysis: input a list of accession, use Fisher's exact test to assign GO terms, output list of significant functional groups represented
+#4. Take a fasta file of ESTs, find open reading frame, BLAST, annotate, assign GO terms, output a new fasta file
