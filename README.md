@@ -89,7 +89,7 @@ The following functions are available in [LisaPySeq.py] ():
 
 Credits
 =======
-These functions are based on several web-based programs we commonly use:
+These functions are based on several commonly-used web-based programs:
 * [Oligonucleotide Properties Calculator] [1]
 * [Reverse Complement] [2] 
 * [Translation] [3] 
