@@ -8,8 +8,6 @@ Contact
 =======
 Email lisa.johnson.cohen@gmail.com or lcohen49@hboi.fau.edu.
 
-I work for an academic institute researching and characterizing gene expression profiles using our own custom-designed microarrays. Basically, I got tired of using piece-meal software packages and web-based programs to accomplish the bioinformatics tasks needed on a daily basis. So, I started learning Python to circumvent some of our obstacles. 
-
 Installation instructions
 =========================
 Download [LisaPySeq.py] () into a working directory. 
